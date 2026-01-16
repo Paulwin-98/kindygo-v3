@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398457108096",
+    "project_id": "kindygo-v3",
+    "storage_bucket": "kindygo-v3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398457108096:android:cd198382eebae47d16d865",
+        "android_client_info": {
+          "package_name": "com.mzrgroup.kindygo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuykLcURb__cYy4hPb51cWiE6g9h8Flc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
