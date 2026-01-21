@@ -29,12 +29,34 @@ export default function Home() {
             <TouchableOpacity style={styles.payNowButton}>
               <Text style={styles.payNowText}>Pay Now</Text>
             </TouchableOpacity>
-
           </View>
-          <View style={styles.roundedSquare1} />
+
+          <View style={styles.roundedSquare1}>
+            <Text style={styles.latestText}>Latest Payment</Text>
+            <Text style={styles.RmText}>RM0.00</Text>
+            <TouchableOpacity style={styles.seeAllButton}>
+              <Text style={styles.SeeText}>See All</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
-        
+        <View style={styles.centerContainer}>
+          <View style={styles.topRectangle}>
+            <Text style={styles.rectangleText}>Centered Rectangle</Text>
+            <TouchableOpacity style={styles.topRightButton}>
+              <Text style={styles.buttonText}>See all</Text>
+            </TouchableOpacity>
+            <Text style={styles.noText}>No invoices</Text>
+          </View>
+
+          <View style={styles.bottomRectangle}>
+            <Text style={styles.rectangleText}>Bottom Rectangle</Text>
+            <TouchableOpacity style={styles.topRightButton}>
+              <Text style={styles.buttonText}>See all</Text>
+            </TouchableOpacity>
+            <Text style={styles.noText}>No payments</Text>
+          </View>
+        </View>
       </View>
 
       <TouchableOpacity
@@ -150,6 +172,93 @@ const styles = StyleSheet.create({
   payNowText: {
     color: "white",
     fontSize: 13,
-    
+  },
+
+  latestText: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+    fontSize: 14,
+    color: "grey",
+    fontWeight: "semibold",
+  },
+
+  RmText: {
+    position: "absolute",
+    left: 10,
+    top: 50,
+    transform: [{ translateY: -10 }],
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "grey",
+  },
+
+  seeAllButton: {
+    position: "absolute",
+    bottom: 10,
+    right: 80,
+    width: 70,
+    height: 30,
+    borderRadius: 5,
+    backgroundColor: "grey",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  SeeText: {
+    color: "white",
+    fontSize: 13,
+  },
+  centerContainer: {
+    flex: 1,
+    marginTop: 30,
+    marginLeft: 15,
+    gap: 20,
+  },
+  topRectangle: {
+    width: 350,
+    height: 240,
+    borderRadius: 10,
+    backgroundColor: "#fffff",
+    outlineColor: "#6366f1",
+    outlineWidth: 2,
+  },
+  rectangleText: {
+    fontSize: 16,
+    color: "#6366f1",
+    top: 10,
+    left: 10,
+  },
+
+  bottomRectangle: {
+    width: 350,
+    height: 240,
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    outlineColor: "#6366f1",
+    outlineWidth: 2,
+  },
+  topRightButton: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    width: 70,
+    height: 30,
+    borderRadius: 5,
+    backgroundColor: "grey",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 13,
+  },
+  noText: {
+    position: "absolute",
+    top: "70%",
+    left: "50%",
+    transform: [{ translateX: -50 }, { translateY: -50 }],
+    fontSize: 16,
+    color: "#6366f1",
   },
 });
