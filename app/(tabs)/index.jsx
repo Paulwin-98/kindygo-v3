@@ -1,61 +1,54 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
 
 export default function Home() {
-  const insets = useSafeAreaInsets();
-  const notificationTop = insets.top + 5;
+  const notificationTop = 5;
 
   return (
-    <SafeAreaView style={styles.safeContainer}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
-            <Image
-              source={require("../../assets/images/kindygo-icon-transparent.png")}
-              style={styles.icon}
-            />
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
+          <Image
+            source={require("../../assets/images/kindygo-icon-transparent.png")}
+            style={styles.icon}
+          />
+        </TouchableOpacity>
+        <Text style={styles.text}>Little Ones Eduworld Preschool</Text>
+      </View>
+
+      <View style={styles.squareContainer}>
+        <View style={styles.roundedSquare}>
+          <Text style={styles.amountDueText}>Amount due</Text>
+          <Text style={styles.amountText}>RM 0.00</Text>
+          <TouchableOpacity style={styles.payNowButton}>
+            <Text style={styles.payNowText}>Pay Now</Text>
           </TouchableOpacity>
-          <Text style={styles.text}>Little Ones Eduworld Preschool</Text>
         </View>
 
-        <View style={styles.squareContainer}>
-          <View style={styles.roundedSquare}>
-            <Text style={styles.amountDueText}>Amount due</Text>
-            <Text style={styles.amountText}>RM 0.00</Text>
-            <TouchableOpacity style={styles.payNowButton}>
-              <Text style={styles.payNowText}>Pay Now</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.roundedSquare1}>
+          <Text style={styles.latestText}>Latest Payment</Text>
+          <Text style={styles.RmText}>RM0.00</Text>
+          <TouchableOpacity style={styles.seeAllButton}>
+            <Text style={styles.SeeText}>See All</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
-          <View style={styles.roundedSquare1}>
-            <Text style={styles.latestText}>Latest Payment</Text>
-            <Text style={styles.RmText}>RM0.00</Text>
-            <TouchableOpacity style={styles.seeAllButton}>
-              <Text style={styles.SeeText}>See All</Text>
-            </TouchableOpacity>
-          </View>
+      <View style={styles.centerContainer}>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>Invoices</Text>
+          <TouchableOpacity style={styles.topRightButton}>
+            <Text style={styles.buttonText}>SEE ALL</Text>
+          </TouchableOpacity>
+          <Text style={styles.noText}>No invoices</Text>
         </View>
 
-        <View style={styles.centerContainer}>
-          <View style={styles.topRectangle}>
-            <Text style={styles.rectangleText}>Centered Rectangle</Text>
-            <TouchableOpacity style={styles.topRightButton}>
-              <Text style={styles.buttonText}>See all</Text>
-            </TouchableOpacity>
-            <Text style={styles.noText}>No invoices</Text>
-          </View>
-
-          <View style={styles.bottomRectangle}>
-            <Text style={styles.rectangleText}>Bottom Rectangle</Text>
-            <TouchableOpacity style={styles.topRightButton}>
-              <Text style={styles.buttonText}>See all</Text>
-            </TouchableOpacity>
-            <Text style={styles.noText}>No payments</Text>
-          </View>
+        <View style={styles.bottomCard}>
+          <Text style={styles.cardText}>Payments</Text>
+          <TouchableOpacity style={styles.topRightButton}>
+            <Text style={styles.buttonText}>SEE ALL</Text>
+          </TouchableOpacity>
+          <Text style={styles.noText}>No payments</Text>
         </View>
       </View>
 
@@ -65,14 +58,11 @@ export default function Home() {
       >
         <Ionicons name="notifications-outline" size={20} />
       </TouchableOpacity>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeContainer: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     justifyContent: "flex-start",
@@ -107,8 +97,7 @@ const styles = StyleSheet.create({
     right: 15,
     width: 45,
     height: 45,
-    borderRadius: 22.5,
-
+    borderRadius: 22.5, 
     borderColor: "grey",
     justifyContent: "center",
     alignItems: "center",
@@ -123,6 +112,12 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 15,
     marginRight: 15,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
   },
 
   roundedSquare1: {
@@ -133,6 +128,12 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 15,
     marginRight: 15,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
   },
 
   squareContainer: {
@@ -215,43 +216,59 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     gap: 20,
   },
-  topRectangle: {
+  card: {
     width: 350,
-    height: 240,
+    height: 220,
     borderRadius: 10,
     backgroundColor: "#fffff",
     outlineColor: "#6366f1",
-    outlineWidth: 2,
+    outlineWidth: 1.5,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 12,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 8,
   },
-  rectangleText: {
+  cardText: {
     fontSize: 16,
     color: "#6366f1",
     top: 10,
     left: 10,
   },
 
-  bottomRectangle: {
+  bottomCard: {
     width: 350,
-    height: 240,
+    height: 220,
     borderRadius: 10,
     backgroundColor: "#ffffff",
     outlineColor: "#6366f1",
-    outlineWidth: 2,
+    outlineWidth: 1.5,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 8,
   },
   topRightButton: {
     position: "absolute",
     top: 10,
     right: 10,
-    width: 70,
+    width: 60,
     height: 30,
     borderRadius: 5,
-    backgroundColor: "grey",
+    backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",
+    outlineColor: "#6366f1",
+    outlineWidth: 1,
   },
   buttonText: {
-    color: "white",
-    fontSize: 13,
+    color: "#6366f1",
+    fontSize: 11,
   },
   noText: {
     position: "absolute",

@@ -14,18 +14,18 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="payment"
+        name="invoices"
         options={{
-          title: "Payments",
+          title: "Invoices",
           tabBarIcon: ({ color }) => (
             <FontAwesome name="credit-card" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="invoices"
+        name="payment"
         options={{
-          title: "Invoices",
+          title: "Payments",
           tabBarIcon: ({ color }) => (
             <FontAwesome name="file" size={24} color={color} />
           ),
