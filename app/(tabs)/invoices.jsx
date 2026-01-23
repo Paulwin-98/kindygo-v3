@@ -1,72 +1,38 @@
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 
 export default function Invoices() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.invoiceText}>Invoices</Text>
+    <View className="flex-1 justify-start items-center mt-[2%]">
+      <Text className="text-[24px] font-bold relative right-[35%] mb-[20px] text-[#6366f1]">
+        Invoices
+      </Text>
 
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder="Search by invoice ID" />
-        <Ionicons name="search" size={15} color="#6366f1" style={styles.icon} />
+      <View className="flex-row items-center w-[270px] h-[50px] rounded-[10px] mr-[27%] mb-[30px] bg-[#f9f9f9]">
+        <TextInput
+          className="flex-1 h-[40px] px-[40px] text-[16px] left-[15px]"
+          placeholder="Search by invoice ID"
+        />
+        <Ionicons
+          name="search"
+          size={18}
+          color="black"
+          className="absolute left-[10px]"
+        />
       </View>
 
-      <View style={styles.card}>
+      <View
+        className="w-[380px] h-[240px] bg-white rounded-[10px] justify-center items-center overflow-hidden"
+        style={{
+          shadowColor: "#000",
+          shadowOpacity: 0.08,
+          shadowRadius: 10,
+          shadowOffset: { width: 0, height: 4 },
+          elevation: 8,
+        }}
+      >
         <Text>Invoices</Text>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  card: {
-    width: 340,
-    height: 220,
-    borderRadius: 10,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    outlineColor: "#6366f1",
-    outlineWidth: 1.5,
-    marginRight: 10,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 8,
-  },
-  input: {
-    flex: 1,
-    height: 40,
-    paddingHorizontal: 40,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: 250,
-    height: 40,
-    borderRadius: 10,
-    marginRight: "25%",
-    marginBottom: 30,
-    backgroundColor: "#f9f9f9",
-  },
-  icon: {
-    position: "absolute",
-    left: 10,
-  },
-
-  invoiceText: {
-    fontSize: 24,
-    fontWeight: "bold",
-    position: "relative",
-    marginLeft: "-65%",
-    marginBottom: 20,
-    color: "#6366f1",
-  },
-});

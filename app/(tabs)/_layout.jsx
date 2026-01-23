@@ -1,6 +1,7 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
+
 export default function TabLayout() {
   return (
     <Tabs screenOptions={{ headerShown: false }}>
@@ -18,7 +19,7 @@ export default function TabLayout() {
         options={{
           title: "Invoices",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="credit-card" size={24} color={color} />
+            <FontAwesome name="file" size={24} color={color} />
           ),
         }}
       />
@@ -27,7 +28,7 @@ export default function TabLayout() {
         options={{
           title: "Payments",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="file" size={24} color={color} />
+            <FontAwesome name="credit-card" size={24} color={color} />
           ),
         }}
       />

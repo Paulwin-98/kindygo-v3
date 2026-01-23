@@ -5,8 +5,17 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 export default function MoreMenu() {
   const router = useRouter();
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
+    <View className="px-[15px] pt-[24px] pb-[24px]">
+      <View
+        className="bg-white rounded-[15px] overflow-hidden"
+        style={{
+          shadowColor: "#000",
+          shadowOpacity: 0.08,
+          shadowRadius: 10,
+          shadowOffset: { width: 0, height: 4 },
+          elevation: 2,
+        }}
+      >
         <RowButton label="My Profile" onPress={() => router.push("/profile")} />
 
         <Divider />
@@ -21,13 +30,18 @@ export default function MoreMenu() {
   );
 }
 
-function RowButton(props) {
+function RowButton({ label, onPress }) {
   return (
     <Pressable
-      onPress={props.onPress}
-      style={({ pressed }) => [styles.row, pressed && styles.rowPressed]}
+      onPress={onPress}
+      className="w-full flex-row items-center justify-between bg-white px-3 py-3"
     >
-      <Text style={styles.rowText}>{props.label}</Text>
+      <Text
+        className="flex-1 shrink text-[18px] text-gray-400 mr-3"
+        numberOfLines={1}
+      >
+        {label}
+      </Text>
 
       <Ionicons name="chevron-forward" size={18} color="#8E8E93" />
     </Pressable>
@@ -35,43 +49,6 @@ function RowButton(props) {
 }
 
 function Divider() {
-  return <View style={styles.divider} />;
+  return <View className="h-[0.5px] bg-black mx-[16px]" />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 15,
-    paddingTop: 24,
-    paddingBottom: 24,
-  },
-  card: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 12,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 2,
-  },
-  row: {
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#FFFFFF",
-  },
-  rowPressed: {
-    opacity: 0.6,
-  },
-  rowText: {
-    fontSize: 18,
-    color: "#4B5563",
-  },
-  divider: {
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: "black",
-    marginHorizontal: 16,
-  },
-});

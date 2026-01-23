@@ -2,10 +2,21 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default function Payments() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.invoiceText}>Payments</Text>
+    <View className="flex-1 justify-start items-center mt-[2%]">
+      <Text className="text-[24px] font-bold relative right-[35%] mb-[20px] text-[#6366f1]">
+        Payments
+      </Text>
 
-      <View style={styles.card}>
+      <View
+        className="w-[380px] h-[240px] bg-white rounded-[10px] justify-center items-center overflow-hidden"
+        style={{
+          shadowColor: "#000",
+          shadowOpacity: 0.08,
+          shadowRadius: 10,
+          shadowOffset: { width: 0, height: 4 },
+          elevation: 8,
+        }}
+      >
         <Text>Payments</Text>
       </View>
     </View>
@@ -13,29 +24,6 @@ export default function Payments() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  card: {
-    width: 340,
-    height: 200,
-    borderRadius: 10,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    outlineColor: "#6366f1",
-    outlineWidth: 2,
-    marginRight: 10,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 8,
-  },
-
   invoiceText: {
     fontSize: 24,
     fontWeight: "bold",

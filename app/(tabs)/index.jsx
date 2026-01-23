@@ -1,281 +1,121 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export default function Home() {
-  const notificationTop = 5;
-
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
+    <ScrollView
+      contentContainerClassName="flex-grow pb-[30px] justify-start items-start mt-[2%]"
+      showsVerticalScrollIndicator={false}
+    >
+      <View className="flex-row items-center ml-[2%]">
+        <TouchableOpacity
+          className="w-[45px] h-[45px] bg-white rounded-[22.5px] border-[0.5px] border-gray-500 mr-[15px] ml-[10px] justify-center items-center"
+          onPress={() => {}}
+        >
           <Image
             source={require("../../assets/images/kindygo-icon-transparent.png")}
-            style={styles.icon}
+            className="w-[45px] h-[45px]"
           />
         </TouchableOpacity>
-        <Text style={styles.text}>Little Ones Eduworld Preschool</Text>
+        <Text className="text-[14px] font-bold">
+          Little Ones Eduworld Preschool
+        </Text>
       </View>
 
-      <View style={styles.squareContainer}>
-        <View style={styles.roundedSquare}>
-          <Text style={styles.amountDueText}>Amount due</Text>
-          <Text style={styles.amountText}>RM 0.00</Text>
-          <TouchableOpacity style={styles.payNowButton}>
-            <Text style={styles.payNowText}>Pay Now</Text>
+      <View className="flex-row justify-between items-center">
+        <View
+          className="w-[170px] h-[130px] bg-[#6366f1] mt-[25px] ml-[4%] overflow-hidden rounded-[10px]"
+          style={{
+            shadowColor: "#000",
+            shadowOpacity: 0.08,
+            shadowRadius: 10,
+            shadowOffset: { width: 0, height: 4 },
+            elevation: 5,
+          }}
+        >
+          <Text className="absolute top-[12px] left-[15px] text-[12px] text-gray-300 font-bold">
+            AMOUNT DUE
+          </Text>
+          <Text className="absolute left-[15px] top-[50px] -translate-y-[10px] text-[18px] font-bold text-white">
+            RM 0.00
+          </Text>
+          <TouchableOpacity className="absolute bottom-[11px] left-[5px] ml-[5%] w-[70px] h-[40px] rounded-[5px] bg-[#4c4ec0a2] justify-center items-center">
+            <Text className="text-[13px] text-white">PAY NOW</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={styles.roundedSquare1}>
-          <Text style={styles.latestText}>Latest Payment</Text>
-          <Text style={styles.RmText}>RM0.00</Text>
-          <TouchableOpacity style={styles.seeAllButton}>
-            <Text style={styles.SeeText}>See All</Text>
+        <View
+          className="w-[170px] h-[130px] bg-white mt-[25px] ml-[8%] overflow-hidden rounded-[10px]"
+          style={{
+            shadowColor: "#000",
+            shadowOpacity: 0.08,
+            shadowRadius: 10,
+            shadowOffset: { width: 0, height: 4 },
+            elevation: 5,
+          }}
+        >
+          <Text className="absolute top-[12px] left-[15px] text-[12px] text-gray-300 font-bold">
+            LATEST PAYMENT
+          </Text>
+          <Text className="absolute left-[15px] top-[50px] -translate-y-[10px] text-[18px] font-bold text-gray-500 ">
+            RM0.00
+          </Text>
+          <TouchableOpacity className="absolute bottom-[11px] left-[7%] w-[70px] h-[40px] rounded-[5px] bg-gray-300 justify-center items-center">
+            <Text className="text-black text-[13px] font-bold">SEE ALL</Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      <View style={styles.centerContainer}>
-        <View style={styles.card}>
-          <Text style={styles.cardText}>Invoices</Text>
-          <TouchableOpacity style={styles.topRightButton}>
-            <Text style={styles.buttonText}>SEE ALL</Text>
+      <View className="pb-[30px] justify-start items-center ml-[3%] mt-[8%] gap-[5%]">
+        <View
+          className="w-[380px] h-[280px] bg-white rounded-[12px] overflow-hidden border-[1.5px] border-[#6366f1]"
+          style={{
+            shadowColor: "#000",
+            shadowOpacity: 0.08,
+            shadowRadius: 10,
+            shadowOffset: { width: 0, height: 4 },
+            elevation: 8,
+          }}
+        >
+          <Text className="text-[20px] text-[#6366f1] m-[15px]">Invoices</Text>
+          <TouchableOpacity className="absolute m-[15px] right-[1px] w-[60px] h-[30px] rounded-[5px] bg-white justify-center items-center border border-[#6366f1]">
+            <Text className="text-[#6366f1] text-[12px] font-bold">
+              SEE ALL
+            </Text>
           </TouchableOpacity>
-          <Text style={styles.noText}>No invoices</Text>
+          <Text className="absolute top-[70%] left-[50%] -translate-x-[50px] -translate-y-[50px] text-[16px] text-[#6366f1]">
+            No invoices
+          </Text>
         </View>
 
-        <View style={styles.bottomCard}>
-          <Text style={styles.cardText}>Payments</Text>
-          <TouchableOpacity style={styles.topRightButton}>
-            <Text style={styles.buttonText}>SEE ALL</Text>
+        <View
+          className="w-[380px] h-[280px] bg-white rounded-[10px] overflow-hidden"
+          style={{
+            shadowColor: "#000",
+            shadowOpacity: 0.08,
+            shadowRadius: 10,
+            shadowOffset: { width: 0, height: 4 },
+            elevation: 8,
+          }}
+        >
+          <Text className="text-[20px] text-[#6366f1] m-[15px]">Payments</Text>
+          <TouchableOpacity className="absolute m-[15px] right-[1px] w-[60px] h-[30px] rounded-[5px] bg-white justify-center items-center border border-[#6366f1]">
+            <Text className="text-[#6366f1] text-[12px] font-bold">
+              SEE ALL
+            </Text>
           </TouchableOpacity>
-          <Text style={styles.noText}>No payments</Text>
+          <Text className="absolute top-[70%] left-[50%] -translate-x-[50px] -translate-y-[50px] text-[16px] text-[#6366f1]">
+            No payments
+          </Text>
         </View>
       </View>
 
       <TouchableOpacity
-        style={[styles.notificationButton, { top: notificationTop }]}
+        className="absolute right-[15px] w-[45px] h-[45px] rounded-[22.5px] border-gray-500 justify-center items-center bg-white"
         onPress={() => {}}
       >
-        <Ionicons name="notifications-outline" size={20} />
+        <Ionicons name="notifications-outline" size={15} />
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    padding: 5,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  iconButton: {
-    width: 45,
-    height: 45,
-    borderRadius: 25,
-    borderWidth: 1,
-    borderColor: "grey",
-    marginRight: 15,
-    marginLeft: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  icon: {
-    width: 45,
-    height: 45,
-  },
-  text: {
-    fontSize: 13,
-    fontWeight: "semi-bold",
-  },
-  notificationButton: {
-    position: "absolute",
-    right: 15,
-    width: 45,
-    height: 45,
-    borderRadius: 22.5, 
-    borderColor: "grey",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
-  },
-
-  roundedSquare: {
-    width: 160,
-    height: 120,
-    borderRadius: 10,
-    backgroundColor: "#6366f1",
-    marginTop: 25,
-    marginLeft: 15,
-    marginRight: 15,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 5,
-  },
-
-  roundedSquare1: {
-    width: 160,
-    height: 120,
-    borderRadius: 10,
-    backgroundColor: "white",
-    marginTop: 25,
-    marginLeft: 15,
-    marginRight: 15,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 5,
-  },
-
-  squareContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  amountDueText: {
-    position: "absolute",
-    top: 10,
-    left: 10,
-    fontSize: 14,
-    color: "white",
-    fontWeight: "semibold",
-  },
-  amountText: {
-    position: "absolute",
-    left: 10,
-    top: 50,
-    transform: [{ translateY: -10 }],
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "white",
-  },
-  payNowButton: {
-    position: "absolute",
-    bottom: 10,
-    right: 80,
-    width: 70,
-    height: 30,
-    borderRadius: 5,
-    backgroundColor: "#303F9F",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  payNowText: {
-    color: "white",
-    fontSize: 13,
-  },
-
-  latestText: {
-    position: "absolute",
-    top: 10,
-    left: 10,
-    fontSize: 14,
-    color: "grey",
-    fontWeight: "semibold",
-  },
-
-  RmText: {
-    position: "absolute",
-    left: 10,
-    top: 50,
-    transform: [{ translateY: -10 }],
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "grey",
-  },
-
-  seeAllButton: {
-    position: "absolute",
-    bottom: 10,
-    right: 80,
-    width: 70,
-    height: 30,
-    borderRadius: 5,
-    backgroundColor: "grey",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  SeeText: {
-    color: "white",
-    fontSize: 13,
-  },
-  centerContainer: {
-    flex: 1,
-    marginTop: 30,
-    marginLeft: 15,
-    gap: 20,
-  },
-  card: {
-    width: 350,
-    height: 220,
-    borderRadius: 10,
-    backgroundColor: "#fffff",
-    outlineColor: "#6366f1",
-    outlineWidth: 1.5,
-    backgroundColor: "#FFFFFF",
-    borderRadius: 12,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 8,
-  },
-  cardText: {
-    fontSize: 16,
-    color: "#6366f1",
-    top: 10,
-    left: 10,
-  },
-
-  bottomCard: {
-    width: 350,
-    height: 220,
-    borderRadius: 10,
-    backgroundColor: "#ffffff",
-    outlineColor: "#6366f1",
-    outlineWidth: 1.5,
-    overflow: "hidden",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 8,
-  },
-  topRightButton: {
-    position: "absolute",
-    top: 10,
-    right: 10,
-    width: 60,
-    height: 30,
-    borderRadius: 5,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    outlineColor: "#6366f1",
-    outlineWidth: 1,
-  },
-  buttonText: {
-    color: "#6366f1",
-    fontSize: 11,
-  },
-  noText: {
-    position: "absolute",
-    top: "70%",
-    left: "50%",
-    transform: [{ translateX: -50 }, { translateY: -50 }],
-    fontSize: 16,
-    color: "#6366f1",
-  },
-});
