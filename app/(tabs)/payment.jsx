@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function Payments() {
   return (
     <View className="flex-1 justify-start items-center mt-[2%]">
-      <Text className="text-[24px] font-bold relative right-[35%] mb-[20px] text-[#6366f1]">
+      <Text className="text-[24px] font-bold relative right-[33%] mb-[20px] text-[#6366f1]">
         Payments
       </Text>
 

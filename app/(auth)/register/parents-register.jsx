@@ -25,7 +25,7 @@ export default function KindygoRegister({ navigation }) {
 
   const handleRegister = () => {
     console.log("Register pressed");
-    // Add your registration logic here
+    router.push("/register/parents-register-2")
   };
 
   const handleBackToLogin = () => {
@@ -244,23 +244,51 @@ export default function KindygoRegister({ navigation }) {
               />
               <Picker.Item
                 label="LOE Child Care (Taman Rowther, Gombak)"
-                value="Sunshine Preschool"
+                value="LOE Child Care (Taman Rowther, Gombak)"
               />
               <Picker.Item
-                label="Rainbow Kids Academy"
-                value="Rainbow Kids Academy"
+                label="LOE Child Care (Bandar Country Homes, Rawang)"
+                value="LOE Child Care (Bandar Country Homes, Rawang)"
               />
               <Picker.Item
-                label="Smart Start Preschool"
-                value="Smart Start Preschool"
+                label="LOE Preschool (Kubang Kerian, Kelantan)"
+                value="LOE Preschool (Kubang Kerian, Kelantan)  "
               />
               <Picker.Item
-                label="Creative Minds Learning Center"
-                value="Creative Minds Learning Center"
+                label="LOE Preschool (Pasir Puteh, Kelantan)"
+                value="LOE Preschool (Pasir Puteh, Kelantan)"
               />
               <Picker.Item
-                label="Little Explorers Preschool"
-                value="Little Explorers Preschool"
+                label="LOE Preschool (Seksyen 4, Shah Alam)"
+                value="LOE Preschool (Seksyen 4, Shah Alam)"
+              />
+              <Picker.Item
+                label="LOE Preschool (Taman Rowther, Gombak)"
+                value="LOE Preschool (Taman Rowther, Gombak)"
+              />
+              <Picker.Item
+                label="LOE Preschool (Setia Permai 1, Setia Alam)"
+                value="LOE Preschool (Setia Permai 1, Setia Alam)"
+              />
+              <Picker.Item
+                label="LOE Preschool (Bandar Country Homes, Rawang)"
+                value="LOE Preschool (Bandar Country Homes, Rawang)"
+              />
+               <Picker.Item
+                label="LOE Therapy Centre (Pasir Puteh, Kelantan)"
+                value="LOE Therapy Centre (Pasir Puteh, Kelantan)"
+              />
+               <Picker.Item
+                label="LOE Therapy Centre (Seksyen 4, Shah Alam)"
+                value="LOE Therapy Centre (Seksyen 4, Shah Alam)"
+              />
+              <Picker.Item
+                label="LOE Therapy Centre (Taman Rowther, Gombak)"
+                value="LOE Therapy Centre (Taman Rowther, Gombak)"
+              />
+              <Picker.Item
+                label="LOE Therapy Centre (Setia Permai 1)"
+                value="LOE Therapy Centre (Setia Permai 1)"
               />
             </Picker>
           </View>

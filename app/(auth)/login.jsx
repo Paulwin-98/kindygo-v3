@@ -3,52 +3,76 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Image,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
+  Alert,
+  ActivityIndicator,
 } from "react-native";
+import { useAuth } from "../../context/AuthContext";
 
 export default function KindygoLogin() {
   const router = useRouter();
+  const { signIn } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSignIn = () => {
-    console.log("Sign in pressed");
-    // Add your sign-in logic here
+  const handleSignIn = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Please enter email and password");
+      return;
+    }
+
+    setIsLoading(true);
+    const result = await signIn(email, password);
+    setIsLoading(false);
+
+    if (result.success) {
+      // Navigate to home or main app screen
+      router.replace("/"); // or router.replace("/(tabs)") if using tabs
+    } else {
+      Alert.alert("Login Failed", result.error || "Invalid credentials");
+    }
   };
 
   const handleForgotPassword = () => {
     console.log("Forgot password pressed");
     // Add your forgot password logic here
+    // router.push("/forgot-password");
   };
 
   const handleCreateAccount = () => {
-    router.push("/register");
+    router.push("/register/parents-register");
+  };
+
+  const handleGuestAccount = () => {
+    router.push("/");
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
+    <View className="flex-1 bg-white">
+      <View className="flex-1 px-6 justify-evenly">
         {/* Logo Section */}
-        <View style={styles.logoContainer}>
+        <View className="items-center mt-20">
           <Image
             source={require("../../assets/images/kindygo-icon-transparent.png")}
-            style={styles.logoImage}
+            className="w-44 h-44"
             resizeMode="contain"
           />
-          <Text style={styles.welcomeText}>Welcome to Kindygo!</Text>
+          <Text className="text-xl font-normal text-gray-800">
+            Welcome to Kindygo!
+          </Text>
         </View>
 
         {/* Form Section */}
-        <View style={styles.formContainer}>
+        <View className="w-full">
           {/* Email Input */}
           <TextInput
-            style={styles.input}
+            className="w-full h-14 border-b border-gray-200 text-base text-gray-800 px-0 mb-6"
             placeholder="Email"
             placeholderTextColor="#999"
             value={email}
@@ -56,12 +80,13 @@ export default function KindygoLogin() {
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
+            editable={!isLoading}
           />
 
           {/* Password Input */}
-          <View style={styles.passwordContainer}>
+          <View className="w-full h-14 border-b border-gray-200 flex-row items-center mb-8">
             <TextInput
-              style={styles.passwordInput}
+              className="flex-1 text-base text-gray-800 px-0"
               placeholder="Password"
               placeholderTextColor="#999"
               value={password}
@@ -69,10 +94,12 @@ export default function KindygoLogin() {
               secureTextEntry={!showPassword}
               autoCapitalize="none"
               autoComplete="password"
+              editable={!isLoading}
             />
             <TouchableOpacity
-              style={styles.eyeIcon}
+              className="p-2"
               onPress={() => setShowPassword(!showPassword)}
+              disabled={isLoading}
             >
               <Ionicons
                 name={showPassword ? "eye-outline" : "eye-off-outline"}
@@ -83,114 +110,43 @@ export default function KindygoLogin() {
           </View>
 
           {/* Sign In Button */}
-          <TouchableOpacity style={styles.signInButton} onPress={handleSignIn}>
-            <Text style={styles.signInButtonText}>Sign in</Text>
+          <TouchableOpacity
+            className={`w-full h-14 rounded-lg items-center justify-center mb-4 ${
+              isLoading ? "bg-blue-300" : "bg-blue-500"
+            }`}
+            onPress={handleSignIn}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <Text className="text-lg font-medium text-white">Sign in</Text>
+            )}
           </TouchableOpacity>
 
           {/* Forgot Password Link */}
-          <TouchableOpacity onPress={handleForgotPassword}>
-            <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+          <TouchableOpacity onPress={handleForgotPassword} disabled={isLoading}>
+            <Text className="text-sm text-gray-500 text-center">
+              Forgot Password?
+            </Text>
           </TouchableOpacity>
         </View>
 
         {/* Create Account Section */}
-        <View style={styles.createAccountContainer}>
-          <Text style={styles.noAccessText}>Don't have an access? </Text>
-          <TouchableOpacity onPress={handleCreateAccount}>
-            <Text style={styles.createAccountText}>Create account.</Text>
+        <View className="flex-row justify-center items-center mb-10">
+          <Text className="text-sm text-gray-500">Don't have an access? </Text>
+          <TouchableOpacity onPress={handleCreateAccount} disabled={isLoading}>
+            <Text className="text-sm text-gray-800 font-semibold">
+              Create account.
+            </Text>
           </TouchableOpacity>
         </View>
+
+        {/* Guest */}
+        <TouchableOpacity onPress={handleGuestAccount} disabled={isLoading}>
+          <Text className="text-sm text-gray-500 text-center">Guest</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFFFFF",
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 24,
-    justifyContent: "space-evenly",
-  },
-  logoContainer: {
-    alignItems: "center",
-    marginTop: 80,
-  },
-  logoImage: {
-    width: 180,
-    height: 180,
-  },
-  welcomeText: {
-    fontSize: 20,
-    fontWeight: "400",
-    color: "#333",
-  },
-  formContainer: {
-    width: "100%",
-  },
-  input: {
-    width: "100%",
-    height: 56,
-    borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0",
-    fontSize: 16,
-    color: "#333",
-    paddingHorizontal: 0,
-    marginBottom: 24,
-  },
-  passwordContainer: {
-    width: "100%",
-    height: 56,
-    borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0",
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 32,
-  },
-  passwordInput: {
-    flex: 1,
-    fontSize: 16,
-    color: "#333",
-    paddingHorizontal: 0,
-  },
-  eyeIcon: {
-    padding: 8,
-  },
-  signInButton: {
-    width: "100%",
-    height: 56,
-    backgroundColor: "#1E90FF",
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 16,
-  },
-  signInButtonText: {
-    fontSize: 18,
-    fontWeight: "500",
-    color: "#FFFFFF",
-  },
-  forgotPasswordText: {
-    fontSize: 14,
-    color: "#999",
-    textAlign: "center",
-  },
-  createAccountContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 40,
-  },
-  noAccessText: {
-    fontSize: 14,
-    color: "#999",
-  },
-  createAccountText: {
-    fontSize: 14,
-    color: "#333",
-    fontWeight: "600",
-  },
-});
