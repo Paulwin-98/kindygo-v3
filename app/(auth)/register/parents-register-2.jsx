@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Picker } from "@react-native-picker/picker";
+import { router } from 'expo-router';
 
 export default function ParentProfile({ navigation }) {
   const [currentStep, setCurrentStep] = useState(2); // Starting at step 2
@@ -64,11 +65,11 @@ export default function ParentProfile({ navigation }) {
 
   const handleNext = () => {
     console.log('Next pressed');
-    router.push("/register/add_child-details")
+    router.push("/register/addchild-info")
   };
 
   const handleBack = () => {
-    navigation.goBack();
+     router.back();
   };
 
   return (
@@ -76,8 +77,11 @@ export default function ParentProfile({ navigation }) {
       <StatusBar barStyle="dark-content" />
       
       {/* Header */}
-      <View className="items-center justify-center py-4 bg-white border-b border-gray-200">
-        <Text className="text-lg font-semibold text-gray-800">User Profile</Text>
+      <View className="flex-row items-center justify-between px-4 py-3 bg-white border-b border-gray-200">
+        <TouchableOpacity onPress={handleBack} className="p-1">
+          <Ionicons name="chevron-back" size={28} color="#4A90E2" />
+        </TouchableOpacity>
+        <Text className="right-40 text-lg font-semibold text-gray-800">User Profile</Text>
       </View>
 
       <ScrollView 
